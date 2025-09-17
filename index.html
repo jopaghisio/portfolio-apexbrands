@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance Marketing Results | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            padding: 2px;
+            object-fit: cover;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .name-subtitle {
+            font-size: 14px;
+            color: #888;
+            font-weight: 400;
+            margin-top: 4px;
+        }
+
+        .apex-badge {
+            padding: 8px 16px;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid #00ff88;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #00ff88;
+            font-weight: 500;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 120px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(0, 255, 136, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 204, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffffff, #cccccc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #888;
+            margin-bottom: 40px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.5;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+            margin-top: 60px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: #888;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Results Section */
+        .results-section {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #888;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+        }
+
+        .result-card {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff88, #00ccff);
+        }
+
+        .result-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 255, 136, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.1);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+
+        .brand-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .brand-logo {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #000;
+        }
+
+        .brand-name {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .timeframe {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #00ff88;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .metrics {
+            margin-bottom: 30px;
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        .metric-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #00ff88;
+        }
+
+        .channels {
+            margin-bottom: 30px;
+        }
+
+        .channels h4 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .channel-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .channel-tag {
+            background: rgba(0, 204, 255, 0.1);
+            color: #00ccff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(0, 204, 255, 0.2);
+        }
+
+        .impact {
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 204, 255, 0.05));
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .impact h4 {
+            color: #00ff88;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .impact p {
+            color: #ddd;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.05), rgba(0, 204, 255, 0.05));
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .cta-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(45deg, #00ff88, #00ccff);
+            color: #000;
+            padding: 16px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 136, 0.3);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-stats {
+                gap: 30px;
+            }
+            
+            .metric {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .result-card {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .result-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+            <div class="header-content">
+                <div class="profile-section">
+                    <div class="profile-photo">
+                        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCACAAIADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2aiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP//Z" alt="João Paulo Garavello Ghisio">
+                    </div>
+                    <div class="logo">
+                        João Paulo Garavello Ghisio
+                        <div class="name-subtitle">Growth Marketing Specialist</div>
+                    </div>
+                </div>
+                <div class="apex-badge">Tailored for Apex Brands</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Not Just an Employee, a Growth Partner</h1>
+                <p class="hero-subtitle">
+                    I specialize in performance marketing and growth strategy with a focus on measurable results. 
+                    My approach combines data-driven insights with creative campaigns to deliver exceptional ROI across multiple channels.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Leads Generated</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">€20K</div>
+                        <div class="stat-label">Revenue Driven</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">+7.1%</div>
+                        <div class="stat-label">Email Performance</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100K+</div>
+                        <div class="stat-label">Contacts Reached</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Proven Performance Results</h2>
+                <p class="section-subtitle">
+                    Strategic campaigns that drive growth across multiple channels and industries, 
+                    delivering measurable impact for health & wellness and B2B brands.
+                </p>
+            </div>
+
+            <div class="results-grid">
+                <!-- Mude Campaign -->
+                <div class="result-card">
+                    <div class="card-header">
+                        <div class="brand-info">
+                            <div class="brand-logo">M</div>
+                            <div class="brand-name">Mude Health</div>
+                        </div>
+                        <div class="timeframe">5 Months</div>
+                    </div>
+
+                    <div class="metrics">
+                        <div class="metric">
+                            <span class="metric-label">Total Leads Generated</span>
+                            <span class="metric-value">10,000</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Revenue Generated</span>
+                            <span class="metric-value">€20,000</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">ROAS Achieved</span>
+                            <span class="metric-value">4.2x</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Platform Integration</span>
+                            <span class="metric-value">Squarespace</span>
+                        </div>
+                    </div>
+
+                    <div class="channels">
+                        <h4>Marketing Channels</h4>
+                        <div class="channel-tags">
+                            <span class="channel-tag">Meta Ads</span>
+                            <span class="channel-tag">Google Ads</span>
+                            <span class="channel-tag">Pinterest</span>
+                            <span class="channel-tag">Spotify</span>
+                            <span class="channel-tag">Affiliate Marketing</span>
+                        </div>
+                    </div>
+
+                        <div class="impact">
+                        <h4>Key Results</h4>
+                        <p>
+                            Built a comprehensive multi-channel acquisition strategy for this wellness startup. The campaign 
+                            successfully targeted health-conscious millennials across social platforms, driving both brand awareness 
+                            and direct product sales. The strong ROAS demonstrates efficient budget allocation across channels.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- DOT Campaign -->
+                <div class="result-card">
+                    <div class="card-header">
+                        <div class="brand-info">
+                            <div class="brand-logo">D</div>
+                            <div class="brand-name">DOT Group</div>
+                        </div>
+                        <div class="timeframe">Campaign</div>
+                    </div>
+
+                    <div class="metrics">
+                        <div class="metric">
+                            <span class="metric-label">Email Open Rate Improvement</span>
+                            <span class="metric-value">+7.1%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">From → To</span>
+                            <span class="metric-value">22.4% → 29.5%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Database Size</span>
+                            <span class="metric-value">100K+ contacts</span>
+                        </div>
+                    </div>
+
+                    <div class="channels">
+                        <h4>Optimization Areas</h4>
+                        <div class="channel-tags">
+                            <span class="channel-tag">Email Marketing</span>
+                            <span class="channel-tag">Subject Line Testing</span>
+                            <span class="channel-tag">Segmentation</span>
+                            <span class="channel-tag">Automation</span>
+                            <span class="channel-tag">Deliverability</span>
+                        </div>
+                    </div>
+
+                    <div class="impact">
+                        <h4>What I Did</h4>
+                        <p>
+                            I restructured their email segmentation strategy and implemented behavioral triggers based on user engagement. 
+                            Through systematic A/B testing of subject lines and send times, we significantly improved open rates 
+                            across their large B2B database, leading to better lead qualification and sales conversions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Let's Drive Growth Together</h2>
+                <p class="cta-text">
+                    I'd love to discuss how we can apply these strategies to accelerate growth for Apex Brands' portfolio. 
+                    Ready to explore what's possible?
+                </p>
+                <button class="cta-button" onclick="window.open('https://wa.me/5548998603947?text=Hi! I saw your portfolio and would like to discuss a potential growth partnership with Apex Brands.', '_blank')">
+                    Start the Conversation →
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add smooth scrolling and interaction effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for any internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Add scroll-triggered animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.result-card').forEach(card => {
+                card.style.animationPlayState = 'paused';
+                observer.observe(card);
+            });
+
+            // Add hover effects for metric cards
+            document.querySelectorAll('.metric').forEach(metric => {
+                metric.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateX(5px)';
+                    this.style.backgroundColor = 'rgba(0, 255, 136, 0.05)';
+                });
+                
+                metric.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateX(0)';
+                    this.style.backgroundColor = 'rgba(255, 255, 255, 0.03)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
